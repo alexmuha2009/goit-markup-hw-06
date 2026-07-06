@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebStudio</title>
+    <title></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
     <header id="header" class="header">
         <div class="container header-container">
-            <a href="./index.html" class="logo header-logo"><span class="logo-accent">Web</span>Studio</a>
+            <a href="./index.html" class="logo header-logo"><span class="logo-accent"></span>Studio</a>
             <nav class="navigation">
                 <ul class="nav-list">
                    <li><a href="#features" class="nav-link current">Features</a></li>
@@ -23,10 +23,10 @@
                 </ul>
             </nav>
 
-             <button class="menu-open-btn" data-menu-open type="button">
-    <svg class="menu-open-icon" width="32" height="22">
-        <use href="./images/icons.svg#icon-burger"></use>
-    </svg>
+         <button class="menu-open-btn" data-menu-open type="button">
+  <svg class="menu-open-icon" width="32" height="22">
+    <use href="./images/icons.svg#icon-burger"></use>
+  </svg>
 </button>
 
 <div class="mobile-menu" data-menu>
@@ -331,7 +331,7 @@
    <footer id="footer" class="footer">
         <div class="container footer-container">
             <div class="footer-logo-container">
-                <a href="./index.html" class="logo footer-logo"><span class="logo-accent">Web</span><span class="logo-light">Studio</span></a>
+                <a href="./index.html" class="logo footer-logo"><span class="logo-accent"></span><span class="logo-light">Studio</span></a>
                 <p class="footer-text">Increase the flow of customers and sales for your business with digital marketing & growth solutions.</p>
             </div>
             <div class="footer-social-container">
@@ -411,41 +411,53 @@
     </div>
     
 <script>
-    // 1. Посилання на модалку
-    const modalRefs = {
-        openModalBtn: document.querySelector("[data-modal-open]"),
-        closeModalBtn: document.querySelector("[data-modal-close]"),
-        modal: document.querySelector("[data-modal]"),
-    };
+  // Загортаємо в IIFE для безпеки (професійний стандарт)
+  (() => {
+    // --- ЛОГІКА МОДАЛКИ ---
+    const openModalBtn = document.querySelector("[data-modal-open]");
+    const closeModalBtn = document.querySelector("[data-modal-close]");
+    const modal = document.querySelector("[data-modal]");
 
-    // 2. Посилання на меню
-    const menuRefs = {
-        openMenuBtn: document.querySelector("[data-menu-open]"),
-        closeMenuBtn: document.querySelector("[data-menu-close]"),
-        menu: document.querySelector("[data-menu]"),
-    };
+    // Перевіряємо, чи є елементи на сторінці, щоб уникнути помилок
+    if (openModalBtn && closeModalBtn && modal) {
+      const toggleModal = () => modal.classList.toggle("is-open");
 
-    // Функції-перемикачі
-    function toggleModal() {
-        modalRefs.modal.classList.toggle("is-open");
+      openModalBtn.addEventListener("click", toggleModal);
+      closeModalBtn.addEventListener("click", toggleModal);
+
+      // Закриття за кліком на бекдроп
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) toggleModal();
+      });
     }
 
-    function toggleMenu() {
-        menuRefs.menu.classList.toggle("is-open");
+    // --- ЛОГІКА МЕНЮ ---
+    const openMenuBtn = document.querySelector("[data-menu-open]");
+    const closeMenuBtn = document.querySelector("[data-menu-close]");
+    const mobileMenu = document.querySelector("[data-menu]");
+
+    if (openMenuBtn && closeMenuBtn && mobileMenu) {
+      const toggleMenu = () => {
+        mobileMenu.classList.toggle("is-open");
+        // Додатково блокуємо/розблоковуємо скрол body, коли меню відкрите
+        document.body.classList.toggle("no-scroll");
+      };
+
+      openMenuBtn.addEventListener("click", toggleMenu);
+      closeMenuBtn.addEventListener("click", toggleMenu);
+
+      // ВАЖЛИВО: Закриваємо меню при кліку на якірні посилання (Features, Team і т.д.)
+      const menuLinks = document.querySelectorAll(".mobile-menu-link"); // Переконайся, що цей клас є в HTML посилань
+      
+      menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("is-open");
+          document.body.classList.remove("no-scroll"); // Повертаємо скрол
+        });
+      });
     }
-
-    // Слухачі подій для модалки
-    modalRefs.openModalBtn.addEventListener("click", toggleModal);
-    modalRefs.closeModalBtn.addEventListener("click", toggleModal);
-    modalRefs.modal.addEventListener("click", (e) => {
-        if (e.target === modalRefs.modal) toggleModal();
-    });
-
-    // Слухачі подій для меню
-    menuRefs.openMenuBtn.addEventListener("click", toggleMenu);
-    menuRefs.closeMenuBtn.addEventListener("click", toggleMenu);
+  })();
 </script>
-
 
 
 </body>

@@ -69,3 +69,16 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.mobile-menu {
+  /* ... твої стилі ... */
+  padding-top: 80px;
+  padding-left: 40px; /* Ось цей відступ зробить меню акуратним */
+}
+
+.menu-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  /* ... інше ... */
+}
