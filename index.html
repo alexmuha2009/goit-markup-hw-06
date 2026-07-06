@@ -22,6 +22,26 @@
                     <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                 </ul>
             </nav>
+
+             <button class="menu-open-btn" data-menu-open type="button">
+    <svg class="menu-open-icon" width="32" height="22">
+        <use href="./images/icons.svg#icon-burger"></use>
+    </svg>
+</button>
+
+<div class="mobile-menu" data-menu>
+  <button class="menu-close-btn" data-menu-close type="button">
+    <svg class="modal-close-icon" width="8" height="8">
+      <use href="./images/icons.svg#icon-close"></use>
+    </svg>
+  </button>
+  <ul class="mobile-menu-list">
+    <li><a href="#features" class="mobile-menu-link">Features</a></li>
+    <li><a href="#team" class="mobile-menu-link">Team</a></li>
+    <li><a href="#portfolio" class="mobile-menu-link">Portfolio</a></li>
+  </ul>
+</div>
+
             <address class="contacts">
                 <ul class="contacts-list">
                     <li><a href="mailto:info@devstudio.com" class="contacts-link">info@devstudio.com</a></li>
@@ -333,6 +353,19 @@
         </div>
     </footer>
             
+<div class="mobile-menu" data-menu>
+        <button class="menu-close-btn" data-menu-close>
+            <svg class="modal-close-icon" width="8" height="8">
+                <use href="./images/icons.svg#icon-close"></use>
+            </svg>
+        </button>
+        <ul class="mobile-menu-list">
+            <li><a href="#features" class="mobile-menu-link">Features</a></li>
+            <li><a href="#team" class="mobile-menu-link">Team</a></li>
+            <li><a href="#portfolio" class="mobile-menu-link">Portfolio</a></li>
+        </ul>
+    </div>
+
 <div class="backdrop" data-modal id="modal">
         <div class="modal">
             <button type="button" class="modal-close-btn" data-modal-close aria-label="close modal">
@@ -378,37 +411,42 @@
     </div>
     
 <script>
-    const refs = {
+    // 1. Посилання на модалку
+    const modalRefs = {
         openModalBtn: document.querySelector("[data-modal-open]"),
         closeModalBtn: document.querySelector("[data-modal-close]"),
         modal: document.querySelector("[data-modal]"),
     };
 
-refs.openModalBtn.addEventListener("click", toggleModal);
-refs.closeModalBtn.addEventListener("click", toggleModal);
-// Додаємо обробник на бекдроп з перевіркою
-// Заміни ВСІ старі обробники на бекдроп/модалку на оцей один блок:
-refs.modal.addEventListener("click", (e) => {
-    // Якщо клікнули точно по бекдропу (сірому фону) — закриваємо
-    if (e.target === refs.modal) {
-        toggleModal();
-    }
-    // Якщо клікнули по самій формі (білому вікну) або всередині неї — 
-    // ми нічого не робимо, і модалка НЕ закриється.
-});
+    // 2. Посилання на меню
+    const menuRefs = {
+        openMenuBtn: document.querySelector("[data-menu-open]"),
+        closeMenuBtn: document.querySelector("[data-menu-close]"),
+        menu: document.querySelector("[data-menu]"),
+    };
 
+    // Функції-перемикачі
     function toggleModal() {
-    // Змінюємо is-hidden на is-open
-    refs.modal.classList.toggle("is-open");
-}
-    const modalWindow = document.querySelector(".modal"); // Знайди саму форму
+        modalRefs.modal.classList.toggle("is-open");
+    }
 
-modalWindow.addEventListener("click", (e) => {
-    e.stopPropagation(); // ЦЕ ЗУПИНЯЄ СХОДЖЕННЯ ПОДІЇ
-});
+    function toggleMenu() {
+        menuRefs.menu.classList.toggle("is-open");
+    }
 
+    // Слухачі подій для модалки
+    modalRefs.openModalBtn.addEventListener("click", toggleModal);
+    modalRefs.closeModalBtn.addEventListener("click", toggleModal);
+    modalRefs.modal.addEventListener("click", (e) => {
+        if (e.target === modalRefs.modal) toggleModal();
+    });
 
+    // Слухачі подій для меню
+    menuRefs.openMenuBtn.addEventListener("click", toggleMenu);
+    menuRefs.closeMenuBtn.addEventListener("click", toggleMenu);
 </script>
+
+
 
 </body>
 </html>

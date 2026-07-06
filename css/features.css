@@ -49,3 +49,27 @@
 @media screen and (min-width: 1158px) {
   /* Стилі для десктопа */
 }
+
+@media screen and (min-width: 768px) {
+    /* Тут пишеш стилі, щоб елементи ставали в 2 колонки, наприклад */
+}
+/* Базові стилі для мобільного (одна колонка) */
+.features-list {
+  display: flex;
+  flex-direction: column; /* Стовпчик для мобільних */
+  gap: 72px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.features-item {
+  width: 100%; /* ЦЕ ГОЛОВНЕ: вони займуть всю ширину */
+}
+
+/* Для планшета (768px) і далі вже можна робити 2 колонки */
+@media screen and (min-width: 768px) {
+  .features-item {
+    width: calc((100% - 24px) / 2); /* 2 в рядок */
+  }
+}

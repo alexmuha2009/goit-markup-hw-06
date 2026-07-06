@@ -90,3 +90,57 @@
 .contacts-link:focus {
   color: #404bbf;
 }
+
+.menu-open-btn {
+    padding: 0;
+    line-height: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* На мобільних кнопка має бути видною */
+@media screen and (min-width: 768px) {
+    .menu-open-btn {
+        display: none; /* Ховаємо на планшетах і десктопах */
+    }
+}
+/* Приховуємо навігацію та контакти на мобілці */
+@media screen and (max-width: 767px) {
+  .navigation,
+  .contacts {
+    display: none;
+  }
+}
+
+/* Налаштовуємо хедер-контейнер для мобільних */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Лого зліва, кнопка бургера справа */
+  align-items: center;
+}
+
+/* Кнопка спочатку прихована (по замовчуванню) */
+.menu-open-btn {
+    display: none; 
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+/* На мобільних (до 767px) вона з'являється */
+@media screen and (max-width: 767px) {
+    .menu-open-btn {
+        display: block; /* Повертаємо кнопку на екран */
+    }
+}
+
+/* На десктопах (від 768px) навігація з'являється, а бургер зникає */
+@media screen and (min-width: 768px) {
+    .navigation, .contacts {
+        display: flex; /* Повертаємо посилання */
+    }
+    .menu-open-btn {
+        display: none; /* Бургер більше не потрібен */
+    }
+}
