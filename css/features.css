@@ -1,75 +1,58 @@
+/* --- MOBILE --- */
 .features {
-  padding: 120px 0;
+  padding: 96px 0;
 }
-
 .features-list {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 72px;
 }
-
-.features-item {
-  width: calc((100% - 72px) / 4);
-}
-
 .features-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 112px;
-  background-color: #f4f4fd;
-  border-radius: 4px;
-  margin-bottom: 8px;
-  border: 1px solid #8e8f99;
+  display: none; /* Приховано на мобілці */
 }
-
-.features-icon {
-  fill: #2e2f42;
-}
-
 .features-subtitle {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  text-align: center;
   color: #2e2f42;
   margin-bottom: 8px;
 }
 
-.features-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #434455;
-}
-
+/* --- TABLET --- */
 @media screen and (min-width: 768px) {
-  /* Стилі для планшета */
-}
-
-@media screen and (min-width: 1158px) {
-  /* Стилі для десктопа */
-}
-
-@media screen and (min-width: 768px) {
-    /* Тут пишеш стилі, щоб елементи ставали в 2 колонки, наприклад */
-}
-/* Базові стилі для мобільного (одна колонка) */
-.features-list {
-  display: flex;
-  flex-direction: column; /* Стовпчик для мобільних */
-  gap: 72px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.features-item {
-  width: 100%; /* ЦЕ ГОЛОВНЕ: вони займуть всю ширину */
-}
-
-/* Для планшета (768px) і далі вже можна робити 2 колонки */
-@media screen and (min-width: 768px) {
+  .features-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px; /* 72px вертикально, 24px горизонтально */
+  }
   .features-item {
-    width: calc((100% - 24px) / 2); /* 2 в рядок */
+    width: calc((100% - 24px) / 2); /* 2 колонки */
+  }
+  .features-subtitle {
+    text-align: left;
+  }
+}
+
+/* --- DESKTOP --- */
+@media screen and (min-width: 1158px) {
+  .features {
+    padding: 120px 0; /* Збільшений padding */
+  }
+  .features-list {
+    flex-wrap: nowrap;
+    gap: 24px;
+  }
+  .features-item {
+    width: calc((100% - 72px) / 4); /* 4 колонки */
+  }
+  .features-icon-container {
+    display: flex; /* Іконки з'являються тільки тут */
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    background-color: #f4f4fd;
+    border-radius: 4px;
+    margin-bottom: 8px;
   }
 }

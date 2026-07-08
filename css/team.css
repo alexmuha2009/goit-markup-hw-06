@@ -123,3 +123,29 @@
               0px 1px 1px rgba(46, 47, 66, 0.16), 
               0px 2px 1px rgba(46, 47, 66, 0.08);
 }
+
+/* team.css */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 72px; /* Мобільна база */
+}
+@media screen and (min-width: 768px) {
+  .team-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px 24px; /* Планшет: 2 колонки */
+  }
+}
+@media screen and (min-width: 1158px) {
+  .team-list {
+    gap: 24px; /* Десктоп: 4 колонки */
+  }
+}
+
+/* portfolio.css */
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}

@@ -197,3 +197,53 @@
     padding-left: 108px; /* Відступ зліва як у макеті */
   }
 }
+
+/* --- Мобільна база (все по центру) --- */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+}
+
+/* --- Планшет (робимо рядок) --- */
+@media screen and (min-width: 768px) {
+  .footer-container {
+    width: 584px; /* Чітка ширина для планшета */
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 72px 24px;
+  }
+  .footer-form {
+    flex-direction: row; /* Інпут і кнопка в один ряд */
+    gap: 24px;
+  }
+}
+
+/* --- Десктоп (розставляємо по місцях) --- */
+@media screen and (min-width: 1158px) {
+  .footer-container {
+    width: 1158px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+  .footer-logo-container { margin-right: 120px; }
+  .footer-social-container { margin-right: 80px; }
+  .footer-subscribe-container { margin-left: auto; }
+}
+
+/* Скидаємо всі твої старі марджини на мобілці */
+.footer-logo-container,
+.footer-social-container,
+.footer-subscribe-container {
+  margin: 0; 
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column; /* Інпут і кнопка стовпчиком */
+  align-items: center;
+  gap: 16px;
+}

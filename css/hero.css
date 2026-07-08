@@ -42,3 +42,40 @@
 .hero-btn:focus {
   background-color: #404bbf;
 }
+
+.hero {
+  background-color: #2e2f42;
+  padding: 72px 0; /* Зменшили з 188px */
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 36px; /* Зменшили з 56px */
+  line-height: 1.11;
+  max-width: 216px; /* Вужче обмеження */
+  margin: 0 auto 72px auto; /* Менший відступ знизу */
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding: 112px 0;
+  }
+  .hero-title {
+    font-size: 56px;
+    line-height: 1.07;
+    max-width: 496px;
+    margin-bottom: 36px; /* Менший простір між заголовком і кнопкою */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding: 112px 0;
+  }
+  .hero-title {
+    font-size: 56px;
+    line-height: 1.07;
+    max-width: 496px;
+    margin-bottom: 36px; /* Менший простір між заголовком і кнопкою */
+  }
+}

@@ -101,3 +101,29 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+/* team.css */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрує картки команди */
+  gap: 72px;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+@media screen and (min-width: 768px) {
+  .portfolio-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px; /* 2 колонки */
+  }
+}
+@media screen and (min-width: 1158px) {
+  .portfolio-list {
+    gap: 48px 24px; /* 3 колонки */
+  }
+}

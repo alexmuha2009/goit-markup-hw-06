@@ -12,7 +12,10 @@
   align-items: center;
 }
 
+/* 1. Додай padding для логотипу */
 .header-logo {
+  display: block;
+  padding: 16px 0; /* Вимога ментора для мобілки */
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -20,7 +23,14 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #4d5ae5;
-  margin-right: 76px;
+}
+
+/* 2. Переконайся, що іконка бургера має розмір 24x24 */
+.menu-open-icon {
+  display: block; /* Важливо для вирівнювання */
+  width: 24px;    /* Вимога ментора */
+  height: 24px;   /* Вимога ментора */
+  fill: #2e2f42;
 }
 
 .nav-list {
@@ -76,14 +86,24 @@
   margin: 0;
 }
 
+/* 1. Базові стилі для мобілки/планшета (< 1158px) */
 .contacts-link {
-  display: block;
-  padding: 24px 0;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
   color: #434455;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Спеціальні стилі для десктопа (>= 1158px) */
+@media screen and (min-width: 1158px) {
+  .contacts-link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
 }
 
 .contacts-link:hover,
