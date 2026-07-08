@@ -98,14 +98,10 @@
 
 /* 2. Спеціальні стилі для десктопа (>= 1158px) */
 @media screen and (min-width: 1158px) {
-  .contacts-link {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
+  .header-logo {
+    margin-right: 76px; /* Встанови 76px для десктопа */
   }
 }
-
 .contacts-link:hover,
 .contacts-link:focus {
   color: #404bbf;

@@ -24,16 +24,13 @@ img {
     height: auto;
 }
 
-/* --- ГОЛОВНА ГЕОМЕТРІЯ САЙТУ --- */
-.container {
-  padding-left: 16px;
-  padding-right: 16px;
-  margin: 0 auto; /* Центрує контент */
-  width: 100%;
-}
-
 .section {
-    padding: 120px 0;
+  padding: 96px 0; /* Мобільний відступ */
+}
+@media screen and (min-width: 1158px) {
+  .section {
+    padding: 120px 0; /* Десктопний відступ */
+  }
 }
 
 .sr-only {
@@ -84,6 +81,14 @@ img {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 320px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
 }
 
 .container {

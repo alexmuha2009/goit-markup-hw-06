@@ -1,21 +1,30 @@
 .team {
   background-color: #f4f4fd;
-  padding: 120px 0;
+  padding: 96px 0; /* Мобільний відступ */
+}
+
+.team-title {
+  text-align: center;
+  font-size: 36px;
+  line-height: 1.11;
+  color: #2e2f42;
+  margin-bottom: 72px;
 }
 
 .team-list {
-    display: flex;
-    flex-wrap: wrap; /* Дозволяємо перенос */
-    justify-content: center; /* Центруємо картки по горизонталі */
-    gap: 72px;
-    padding: 0; /* Обов'язково видаляємо стандартний відступ списку */
-    margin: 0;
-    list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
+
 .team-item {
+  width: 264px;
   background-color: #ffffff;
-  width: calc((100% - 72px) / 4);
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 0 0 4px 4px;
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 
               0px 1px 1px 0px rgba(46, 47, 66, 0.16), 
               0px 1px 6px 0px rgba(46, 47, 66, 0.08);
@@ -52,14 +61,9 @@
   margin: 0;
 }
 
-.team-soc-item {
+.team-soc-link {
   width: 40px;
   height: 40px;
-}
-
-.team-soc-link {
-  width: 100%;
-  height: 100%;
   background-color: #4d5ae5;
   border-radius: 50%;
   display: flex;
@@ -68,84 +72,17 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-soc-link:hover,
-.team-soc-link:focus {
-  background-color: #404bbf;
-}
-
-.team-soc-icon {
-  fill: #f4f4fd;
-}
-
-/* Базовий мобільний стиль (одна колонка) */
-.team-list {
-  display: flex;
-  flex-direction: column; /* Ставимо один під одним */
-  gap: 72px;              /* Відступи між картками */
-  align-items: center;    /* Центруємо */
-}
-
-/* Планшет (768px) — дві колонки */
-@media screen and (min-width: 768px) {
-  .team-list {
-    flex-direction: row;  /* Повертаємо в рядок */
-    flex-wrap: wrap;      /* Дозволяємо перенесення */
-    gap: 24px;            /* Менші відступи */
-    justify-content: center;
-  }
-  .team-item {
-    flex-basis: calc((100% - 24px) / 2); /* 2 картки в ряд */
-  }
-}
-
-/* Десктоп (1158px) — чотири колонки */
-@media screen and (min-width: 1158px) {
-  .team-item {
-    flex-basis: calc((100% - 72px) / 4); /* 4 картки в ряд */
-  }
-}
-/* Для мобільної версії */
-.team-list {
-  display: flex;
-  flex-direction: column; /* Ставимо картки стовпчиком */
-  align-items: center;    /* ЦЕ ПРИТИСНЕ КАРТКИ ПО ЦЕНТРУ */
-  gap: 72px;              /* Відступ між картками */
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.team-item {
-  width: 264px; /* Фіксована ширина картки, як вказано у вимогах */
-  background-color: #FFFFFF;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 
-              0px 1px 1px rgba(46, 47, 66, 0.16), 
-              0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
-/* team.css */
-.team-list {
-  display: flex;
-  flex-direction: column;
-  gap: 72px; /* Мобільна база */
-}
+/* Медіа-запити */
 @media screen and (min-width: 768px) {
   .team-list {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 64px 24px; /* Планшет: 2 колонки */
-  }
-}
-@media screen and (min-width: 1158px) {
-  .team-list {
-    gap: 24px; /* Десктоп: 4 колонки */
+    justify-content: center;
+    gap: 64px 24px;
   }
 }
 
-/* portfolio.css */
-.portfolio-list {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+@media screen and (min-width: 1158px) {
+  .team { padding: 120px 0; }
+  .team-list { gap: 24px; }
 }
